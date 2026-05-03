@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+
+
+    <link rel="icon" href="portfolio_icon.png" type="image/x-icon">
+    <title>Nikisha - Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@400;600&family=Indie+Flower&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#4568f3",
+                        "outline-variant": "#c4c5d7",
+                        "secondary": "#44664c",
+                        "surface-container-high": "#eae8e2",
+                        "inverse-primary": "#b8c3ff",
+                        "secondary-container": "#c3e9c8",
+                        "on-secondary-container": "#486a50",
+                        "on-surface-variant": "#444655",
+                        "tertiary": "#8b4c11",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary-container": "#a96428",
+                        "on-background": "#1b1c19",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fbf9f3",
+                        "on-primary-fixed": "#001355",
+                        "surface-container": "#f0eee8",
+                        "inverse-surface": "#30312d",
+                        "primary": "#264dd9",
+                        "on-surface": "#1b1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747686",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "surface": "#fbf9f3",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#c6ecca",
+                        "surface-variant": "#e4e2dd",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#294fdb",
+                    },
+                    fontFamily: {
+                        "h1": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "h3": ["Indie Flower"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"],
+                        "caption": ["Indie Flower"],
+                    },
+                    fontSize: {
+                        "h1": ["48px", { lineHeight: "1.1", fontWeight: "800" }],
+                        "h2": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "h3": ["28px", { lineHeight: "1.2", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label": ["12px", { letterSpacing: "0.05em", fontWeight: "600" }],
+                        "caption": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100dvh;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ── Smooth scroll ── */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ── Dark mode ── */
+        .dark body {
+            background: #0f1117 !important;
+            color: #e8e6df;
+        }
+
+        .dark #main-header {
+            background: #13141c !important;
+            border-color: #252630 !important;
+        }
+
+        .dark .mobile-nav-strip {
+            background: #13141c !important;
+            border-color: #252630 !important;
+        }
+
+        .dark .mobile-nav-link {
+            color: #9a9baa;
+        }
+
+        .dark .mobile-nav-link:hover {
+            background: #1e1f28;
+            color: #e8e6df;
+        }
+
+        .dark .text-stone-800 {
+            color: #e8e6df !important;
+        }
+
+        .dark .text-stone-600,
+        .dark .text-stone-700 {
+            color: #9a9baa !important;
+        }
+
+        .dark .text-stone-500 {
+            color: #6a6b7a !important;
+        }
+
+        .dark .bg-surface-container-lowest {
+            background: #1e1f28 !important;
+        }
+
+        .dark .bg-surface-container-high {
+            background: #1a1b22 !important;
+        }
+
+        .dark .bg-surface-container {
+            background: #252630 !important;
+        }
+
+        .dark .bg-white {
+            background: #1e1f28 !important;
+        }
+
+        .dark .border-stone-200 {
+            border-color: #2e2f3a !important;
+        }
+
+        .dark .text-on-surface {
+            color: #e8e6df !important;
+        }
+
+        .dark .text-on-surface-variant {
+            color: #9a9baa !important;
+        }
+
+        .dark .text-on-secondary-container {
+            color: #8fba97 !important;
+        }
+
+        .dark .bg-secondary-container\/20 {
+            background: rgba(68, 102, 76, 0.18) !important;
+        }
+
+        .dark .border-secondary-container {
+            border-color: #2d4e35 !important;
+        }
+
+        .dark .polaroid {
+            background: #1e1f28 !important;
+            box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.55) !important;
+        }
+
+        .dark .bg-stone-100 {
+            background: #252630 !important;
+        }
+
+        .dark .border-stone-800 {
+            border-color: #444655 !important;
+        }
+
+        .dark .text-stone-900 {
+            color: #e8e6df !important;
+        }
+
+        .dark footer p,
+        .dark footer a {
+            color: #6a6b7a;
+        }
+
+        .dark .note-card:hover {
+            box-shadow: 8px 16px 40px rgba(38, 77, 217, 0.28) !important;
+        }
+
+        .dark .bg-yellow-100\/50 {
+            background: rgba(202, 138, 4, 0.12) !important;
+        }
+
+        .dark .bg-primary-fixed {
+            background: #1a204a !important;
+        }
+
+        .dark .text-primary-container {
+            color: #8fa0ff !important;
+        }
+
+        .dark .text-tertiary-container {
+            color: #c87d3a !important;
+        }
+
+        .dark .blog-card {
+            background: #1e1f28 !important;
+            border-color: #2e2f3a !important;
+        }
+
+        .dark .blog-modal-bg {
+            background: #13141c !important;
+        }
+
+        .dark .blog-tag {
+            background: #1a204a !important;
+            color: #8fa0ff !important;
+        }
+
+        /* ── Dark mode theme toggle ── */
+        #theme-btn {
+            width: 52px;
+            height: 28px;
+            border-radius: 14px;
+            border: 2px solid #c4c5d7;
+            background: #e5e7eb;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        #theme-btn::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #264dd9;
+            transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .dark #theme-btn {
+            background: #1e1f28;
+            border-color: #4568f3;
+        }
+
+        .dark #theme-btn::after {
+            transform: translateX(24px);
+            background: #b8c3ff;
+        }
+
+        /* ── Textures ── */
+        .paper-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .torn-edge {
+            clip-path: polygon(0% 0%, 5% 2%, 10% 0%, 15% 3%, 20% 0%, 25% 2%, 30% 0%, 35% 1%, 40% 0%,
+                    45% 2%, 50% 0%, 55% 3%, 60% 0%, 65% 2%, 70% 0%, 75% 1%, 80% 0%, 85% 2%,
+                    90% 0%, 95% 3%, 100% 0%, 100% 100%, 95% 98%, 90% 100%, 85% 97%, 80% 100%,
+                    75% 99%, 70% 100%, 65% 98%, 60% 100%, 55% 97%, 50% 100%, 45% 98%, 40% 100%,
+                    35% 99%, 30% 100%, 25% 98%, 20% 100%, 15% 97%, 10% 100%, 5% 98%, 0% 100%);
+        }
+
+        .blue-textured {
+            background-color: #264dd9;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+
+        .tape-shimmer {
+            background: linear-gradient(105deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.35) 100%);
+            background-size: 200% 100%;
+            animation: tapeShimmer 3s linear infinite;
+            backdrop-filter: blur(2px);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .polaroid {
+            padding: 12px 12px 40px 12px;
+            background: white;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px) rotate(var(--init-rot, 0deg));
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(var(--final-rot, 0deg));
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: fadeUp 0.7s cubic-bezier(.22, .68, 0, 1.2) forwards;
+        }
+
+        .reveal-0 {
+            animation-delay: 0.05s;
+        }
+
+        .reveal-1 {
+            animation-delay: 0.15s;
+        }
+
+        .reveal-2 {
+            animation-delay: 0.28s;
+        }
+
+        .reveal-3 {
+            animation-delay: 0.42s;
+        }
+
+        @keyframes floatPolaroid {
+
+            0%,
+            100% {
+                transform: rotate(-2deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-1.2deg) translateY(-8px);
+            }
+        }
+
+        .polaroid-float {
+            animation: floatPolaroid 5s ease-in-out infinite;
+        }
+
+        .note-card {
+            transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+        }
+
+        .note-card:hover {
+            transform: rotate(0deg) translateY(-6px) scale(1.015) !important;
+            box-shadow: 8px 16px 40px rgba(38, 77, 217, 0.12);
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: #264dd9;
+            vertical-align: middle;
+            border-radius: 2px;
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+        }
+
+        .dark .cursor {
+            background: #b8c3ff;
+        }
+
+        @keyframes tapeShimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes bgPulse {
+
+            0%,
+            100% {
+                background-size: 24px 24px;
+            }
+
+            50% {
+                background-size: 26px 26px;
+            }
+        }
+
+        @keyframes drift1 {
+
+            0%,
+            100% {
+                transform: rotate(-12deg) translate(0, 0);
+            }
+
+            50% {
+                transform: rotate(-8deg) translate(6px, -10px);
+            }
+        }
+
+        @keyframes drift2 {
+
+            0%,
+            100% {
+                transform: rotate(45deg) translate(0, 0);
+            }
+
+            50% {
+                transform: rotate(50deg) translate(-8px, 6px);
+            }
+        }
+
+        .drift1 {
+            animation: drift1 7s ease-in-out infinite;
+        }
+
+        .drift2 {
+            animation: drift2 9s ease-in-out infinite;
+        }
+
+        .sticker-link {
+            transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
+            display: inline-block;
+        }
+
+        .sticker-link:hover {
+            transform: scale(1.18) rotate(-6deg);
+        }
+
+        .sticker-link:nth-child(2):hover {
+            transform: scale(1.18) rotate(6deg);
+        }
+
+        .sticker-link:nth-child(3):hover {
+            transform: scale(1.12) rotate(-3deg);
+        }
+
+        .proj-img {
+            transition: transform 0.6s cubic-bezier(.22, .68, 0, 1.2);
+        }
+
+        .proj-card:hover .proj-img {
+            transform: scale(1.07);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #264dd9;
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-press {
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .btn-press:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22, .68, 0, 1.2);
+        }
+
+        .scroll-reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes ping {
+
+            75%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .ping-dot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #44664c;
+            animation: ping 1.5s cubic-bezier(0, 0, .2, 1) infinite;
+        }
+
+        .ping-dot {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #44664c;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        @keyframes wavyMove {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 40px 0;
+            }
+        }
+
+        .wavy-underline {
+            text-decoration: none;
+            background-image: repeating-linear-gradient(90deg, #eab308 0, #eab308 6px, transparent 0, transparent 12px);
+            background-size: 12px 3px;
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            padding-bottom: 4px;
+            animation: wavyMove 1.5s linear infinite;
+        }
+
+        .footer-link {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            transform: rotate(3deg) scale(1.05);
+        }
+
+        @keyframes nameShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .name-shimmer {
+            font-family: 'Indie Flower', cursive;
+            font-size: clamp(44px, 8vw, 72px);
+            line-height: 1.05;
+            display: inline-block;
+            background: linear-gradient(90deg, #264dd9, #7c9fff, #4568f3, #264dd9);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: nameShimmer 4s ease infinite;
+        }
+
+        .dark .name-shimmer {
+            background: linear-gradient(90deg, #b8c3ff, #e0e7ff, #dde1ff, #b8c3ff);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .role-tag {
+            display: inline-block;
+            font-family: 'Indie Flower', cursive;
+            font-size: 22px;
+            color: #264dd9;
+            transform: rotate(-1deg);
+            margin-bottom: 20px;
+        }
+
+        .dark .role-tag {
+            color: #b8c3ff;
+        }
+
+        #page-wipe {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #264dd9;
+            transform-origin: top;
+            animation: wipeOut 0.8s cubic-bezier(.77, 0, .18, 1) 0.1s forwards;
+        }
+
+        @keyframes wipeOut {
+            from {
+                transform: scaleY(1);
+            }
+
+            to {
+                transform: scaleY(0);
+            }
+        }
+
+        #main-header {
+            transition: box-shadow 0.3s ease;
+        }
+
+        #main-header.scrolled {
+            box-shadow: 0 4px 24px rgba(38, 77, 217, 0.15), 4px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* ════════════════════════════════════════
+       BLOG SECTION STYLES
+    ════════════════════════════════════════ */
+        .blog-card {
+            background: white;
+            border: 2px solid #e4e2dd;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px) rotate(-0.5deg);
+            box-shadow: 8px 16px 40px rgba(38, 77, 217, 0.14);
+        }
+
+        .blog-card .cover-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(.22, .68, 0, 1.2);
+        }
+
+        .blog-card:hover .cover-img {
+            transform: scale(1.06);
+        }
+
+        .blog-tag {
+            display: inline-block;
+            background: #dde1ff;
+            color: #264dd9;
+            font-size: 10px;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 99px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        /* ── Blog skeleton loader ── */
+        .skeleton {
+            background: linear-gradient(90deg, #f0eee8 25%, #e4e2dd 50%, #f0eee8 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 8px;
+        }
+
+        .dark .skeleton {
+            background: linear-gradient(90deg, #1e1f28 25%, #252630 50%, #1e1f28 75%);
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* ── Modal ── */
+        #blog-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 17, 23, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 20px;
+        }
+
+        #blog-modal.open {
+            display: flex;
+        }
+
+        #blog-modal-inner {
+            background: white;
+            border-radius: 24px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25), 4px 4px 0 rgba(38, 77, 217, 0.2);
+            animation: modalIn 0.4s cubic-bezier(.22, .68, 0, 1.2) forwards;
+            position: relative;
+        }
+
+        .dark #blog-modal-inner {
+            background: #13141c;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        #blog-modal-inner img.modal-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        #modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            border: none;
+            cursor: pointer;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        #modal-close:hover {
+            background: rgba(38, 77, 217, 0.8);
+            transform: rotate(90deg);
+        }
+
+        .blog-load-error {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Indie Flower', cursive;
+            font-size: 20px;
+            color: #747686;
+        }
+
+        /* ── Active nav link ── */
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ── Section scroll offset for fixed header ── */
+        section[id] {
+            scroll-margin-top: 96px;
+        }
+
+        /* ── Coming Soon placeholder cards ── */
+        .coming-soon-placeholder {
+            background: #d4d4d8;
+            border: 2px dashed #a1a1aa;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            cursor: default;
+            transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+        }
+
+        .coming-soon-placeholder:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .dark .coming-soon-placeholder {
+            background: #27272a;
+            border-color: #3f3f46;
+        }
+
+        .coming-soon-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #71717a;
+            user-select: none;
+        }
+
+        .dark .coming-soon-text {
+            color: #52525b;
+        }
+    </style>
+</head>
+
+<body class="bg-background font-body-md text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+    <div id="page-wipe"></div>
+
+    <!-- ═══════════════════════ HEADER ═══════════════════════ -->
+    <header id="main-header"
+        class="fixed top-0 left-0 right-0 z-50 bg-stone-50 border-b-4 border-double border-stone-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
+        <nav class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+            <!-- Logo — left aligned -->
+            <div class="flex items-center gap-2 flex-shrink-0 reveal reveal-0">
+                <span class="material-symbols-outlined text-blue-600 text-xl"
+                    style="animation:floatPolaroid 4s ease-in-out infinite;display:inline-block">neurology</span>
+                <span class="font-h1 tracking-tight text-xl font-black text-stone-800 whitespace-nowrap">Building
+                    Intelligence<span class="text-primary"></span></span>
+            </div>
+
+            <!-- Desktop nav — centred links -->
+            <div class="hidden md:flex items-center gap-6 font-label text-stone-600 reveal reveal-1">
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap" href="#about">About</a>
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap" href="#blog">Blog</a>
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap" href="#works">Projects</a>
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap" href="#devlog">Dev Log</a>
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap"
+                    href="#newsletter">Newsletter</a>
+                <a class="nav-link hover:text-stone-900 transition-colors whitespace-nowrap" href="#connect">Connect</a>
+            </div>
+
+            <!-- Right controls + hamburger -->
+            <div class="flex items-center gap-3 reveal reveal-2 flex-shrink-0">
+                <span id="theme-icon"
+                    class="material-symbols-outlined text-stone-600 text-xl select-none pointer-events-none">light_mode</span>
+                <button id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark / light"></button>
+                <!-- Hamburger (mobile only) -->
+                <button id="hamburger-btn"
+                    class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-md hover:bg-stone-100 transition-colors"
+                    aria-label="Open menu" aria-expanded="false">
+                    <span
+                        class="hamburger-line block w-5 h-[2px] bg-stone-700 rounded transition-all duration-300"></span>
+                    <span
+                        class="hamburger-line block w-5 h-[2px] bg-stone-700 rounded transition-all duration-300"></span>
+                    <span
+                        class="hamburger-line block w-5 h-[2px] bg-stone-700 rounded transition-all duration-300"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-stone-50 border-t-2 border-stone-200 px-6 py-4 space-y-1">
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#about" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">person_pin</span> About
+            </a>
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#blog" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">rss_feed</span> Blog
+            </a>
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#works" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">palette</span> Projects
+            </a>
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#devlog" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">edit_note</span> Dev Log
+            </a>
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#connect" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">folder_open</span> Connect
+            </a>
+            <a class="mobile-nav-link flex items-center gap-3 text-stone-700 py-2.5 px-3 rounded-lg hover:bg-stone-100 transition-colors font-label uppercase tracking-widest text-[11px]"
+                href="#newsletter" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">mail</span> Newsletter
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-32 px-6 max-w-6xl mx-auto space-y-24">
+
+
+        <!-- ═══════════════════════ HERO / ABOUT ═══════════════════════ -->
+        <section id="about" class="relative flex flex-col md:flex-row items-center gap-12 py-12">
+            <div class="absolute -z-10 top-0 left-0 w-full h-full blue-textured opacity-20 rounded-xl"></div>
+
+            <div class="relative w-72 h-80 flex-shrink-0 reveal reveal-1" style="--final-rot:-2deg">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 tape-shimmer rotate-2 z-20 rounded-sm">
+                </div>
+                <div class="polaroid polaroid-float relative z-10 cursor-pointer" title="Click to colour-pop!">
+                    <img class="w-full h-full object-cover grayscale brightness-110 contrast-125 transition-all duration-500 hover:grayscale-0"
+                        alt="Portrait of Nikisha" src="high_quality_profile.png" />
+                    <p class="font-h3 text-caption text-center mt-4">Draft #01 </p>
+                </div>
+                <div class="absolute -bottom-6 -right-4 w-16 h-16 opacity-40">
+                    <span class="material-symbols-outlined text-6xl text-primary"
+                        style="animation:floatPolaroid 6s ease-in-out infinite 1s;display:inline-block">gesture</span>
+                </div>
+            </div>
+
+            <div class="note-card relative bg-surface-container-lowest p-10 torn-edge shadow-lg max-w-xl rotate-1 reveal reveal-2"
+                style="--final-rot:1deg">
+                <div class="paper-texture absolute inset-0"></div>
+                <div class="absolute top-4 right-6 text-primary-container opacity-30">
+                    <span class="material-symbols-outlined text-4xl"
+                        style="font-variation-settings:'FILL' 1;animation:floatPolaroid 5s ease-in-out infinite 0.5s;display:inline-block">push_pin</span>
+                </div>
+                <p class="font-label uppercase tracking-widest text-on-surface-variant mb-1">Hello, I'm</p>
+                <div class="mb-3">
+                    <span class="name-shimmer">Nikisha</span>
+                </div>
+                <p class="role-tag wavy-underline">AI and ML Enthusiast ✦</p>
+                <div class="space-y-4 font-body-lg text-body-lg text-on-surface-variant relative mt-2">
+                    <p>
+                        I learn by building models, systems, and experiments that sit somewhere between rigorous
+                        engineering and creative exploration. My work spans data analysis, machine learning, and NLP,
+                        and right now I'm especially drawn to Reinforcement Learning and the growing question of how
+                        we make AI systems more secure.
+                    </p>
+                    <div class="flex items-center gap-4 mt-8">
+                        <a href="#" id="download-resume-btn" onclick="downloadResume(event)"
+                            class="btn-press bg-primary text-on-primary px-6 py-3 rounded-none font-label uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)] border-2 border-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">download</span>
+                            Download Resume
+                        </a>
+                        <span
+                            class="font-h3 text-h3 text-tertiary -rotate-6 hover:rotate-0 transition-transform duration-300 cursor-default select-none">
+                            Let's build!
+                        </span>
+                    </div>
+                </div>
+                <div class="absolute -bottom-8 left-1/4 font-caption text-primary opacity-60 pointer-events-none">
+                    <span class="material-symbols-outlined align-middle">arrow_outward</span>
+                    check my latest papers
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════ BLOG — dev.to feed ═══════════════════════ -->
+        <section id="blog" class="space-y-12 scroll-reveal">
+            <div class="flex items-end justify-between border-b-2 border-dashed border-outline-variant pb-4">
+                <div>
+                    <span class="font-label text-primary-container bg-primary-fixed px-2 py-1">VOL. 01</span>
+                    <h2 class="font-h2 text-h2 mt-2">Blogs</h2>
+                </div>
+                <a href="https://dev.to/kaisudo" target="_blank" rel="noopener"
+                    class="flex items-center gap-2 font-caption text-body-md text-on-surface-variant italic hover:text-primary transition-colors group">
+                    <span
+                        class="material-symbols-outlined text-base group-hover:rotate-45 transition-transform">open_in_new</span>
+                    / from dev.to/kaisudo
+                </a>
+            </div>
+
+            <div id="blog-skeleton" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="rounded-2xl overflow-hidden border-2 border-stone-100">
+                    <div class="skeleton w-full h-44"></div>
+                    <div class="p-5 space-y-3">
+                        <div class="skeleton h-4 w-2/3"></div>
+                        <div class="skeleton h-6 w-full"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                        <div class="skeleton h-4 w-4/5"></div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-stone-100">
+                    <div class="skeleton w-full h-44"></div>
+                    <div class="p-5 space-y-3">
+                        <div class="skeleton h-4 w-2/3"></div>
+                        <div class="skeleton h-6 w-full"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                        <div class="skeleton h-4 w-4/5"></div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-stone-100">
+                    <div class="skeleton w-full h-44"></div>
+                    <div class="p-5 space-y-3">
+                        <div class="skeleton h-4 w-2/3"></div>
+                        <div class="skeleton h-6 w-full"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                        <div class="skeleton h-4 w-4/5"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
+            <div id="blog-error" class="hidden blog-load-error">
+                <span class="material-symbols-outlined text-4xl mb-3 block text-outline">wifi_off</span>
+                Couldn't load posts right now.<br>
+                <a href="https://dev.to/kaisudo" target="_blank" rel="noopener"
+                    class="text-primary underline mt-2 inline-block text-base">Visit dev.to/kaisudo directly →</a>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════ PROJECTS / SELECTED WORKS ═══════════════════════ -->
+        <section id="works" class="space-y-12 scroll-reveal">
+            <div class="flex items-end justify-between border-b-2 border-dashed border-outline-variant pb-4">
+                <div>
+                    <span class="font-label text-primary-container bg-primary-fixed px-2 py-1">VOL. 02</span>
+                    <h2 class="font-h2 text-h2 mt-2">Projects</h2>
+                </div>
+                <span class="font-caption text-body-md text-on-surface-variant italic">/ scraps from the desk</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project Placeholder 1 -->
+                <div class="coming-soon-placeholder scroll-reveal" style="transition-delay:0.1s">
+                    <span class="coming-soon-text">Coming Soon</span>
+                </div>
+
+                <!-- Project Placeholder 2 -->
+                <div class="coming-soon-placeholder scroll-reveal" style="transition-delay:0.2s">
+                    <span class="coming-soon-text">Coming Soon</span>
+                </div>
+
+                <!-- Project Placeholder 3 -->
+                <div class="coming-soon-placeholder scroll-reveal" style="transition-delay:0.3s">
+                    <span class="coming-soon-text">Coming Soon</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════ DEV LOG ═══════════════════════ -->
+        <section id="devlog" class="space-y-12 scroll-reveal">
+            <div class="flex items-end justify-between border-b-2 border-dashed border-outline-variant pb-4">
+                <div>
+                    <span class="font-label text-primary-container bg-primary-fixed px-2 py-1">VOL. 03</span>
+                    <h2 class="font-h2 text-h2 mt-2">Dev Log</h2>
+                </div>
+                <span class="font-caption text-body-md text-on-surface-variant italic">/ currently building</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dev Log Card 1 -->
+                <div class="blog-card scroll-reveal" style="transition-delay:0.1s">
+                    <div style="overflow:hidden">
+                        <img class="cover-img" alt="Sentiment Map" loading="lazy"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPigjk_ihJlD6WeJFA1nhkIidhH4MzJN6ZwVSqjme_tuxfvrD0FYs2GTOh4jieZ-XSVuc4Fy5GEl5K6NxSQf2y0tIFKTbtspL40LhNOb1JXTWoMak3O6b2f9bQvz135sYQdyD7y1sy0KQhEgAMMIY26UiqI2FrbSUjF2HhFGxPFnV2-mX85qBJil4B7Y4Pljrbv16F6tTK9sY_TI5NxDLRFySo-y9juArj6umt3dOrfUlvzBn5TzyPoL_2x6LUxq9pFFZYPv0AMTM" />
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap mb-2">
+                            <span class="blog-tag" style="background:#c3e9c8;color:#44664c">#in-progress</span>
+                            <span class="blog-tag">#LLM</span>
+                            <span class="blog-tag">#Generative-AI</span>
+                        </div>
+                        <h3 class="font-h2 text-[18px] font-bold leading-snug text-on-surface mb-2">Learning about LLMs
+                        </h3>
+                        <p class="text-on-surface-variant font-body-md text-sm line-clamp-3 mb-4">Building a real-time
+                            deep dive of large language models </p>
+                        <div class="flex items-center justify-between text-xs text-on-surface-variant font-body-md">
+                            <span>Week 1</span>
+                            <span class="flex items-center gap-1 text-secondary">
+                                <span class="ping-dot" style="width:6px;height:6px;margin-right:2px"></span> Active
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Log Card 2 -->
+                <div class="blog-card scroll-reveal" style="transition-delay:0.2s">
+                    <div style="overflow:hidden">
+                        <img class="cover-img" alt="RL Agent Training" loading="lazy"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTsnIkUBjezJIOvcMc2IiBgWz3fVTLpBfKj5Dfe6w_hCpdWmgHYASap_Z7_psu1m7eYBpqk9Gtjyny3aAeQiBTnwtbFQUCVVrGmKnSzxkTTUQwyRPgT2d_AW9cITgJIOK5rJrZtltXJY6ZAiIu9JFymwyMTEGHcmWHIqPKaxYmj-rThxABk6O2XzdkRo6QBRBBx1EUf0Fg4GMyEDQ_WEIi4_i5ZOYljWVSqjlrmE6-WET2RGChIpMHr5TBTZ-5r5W_hLHlTnnE5Xs" />
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap mb-2">
+                            <span class="blog-tag" style="background:#c3e9c8;color:#44664c">#in-progress</span>
+                            <span class="blog-tag">#LLMSecurity</span>
+                        </div>
+                        <h3 class="font-h2 text-[18px] font-bold leading-snug text-on-surface mb-2">Learning about
+                            AI Security
+                        </h3>
+                        <p class="text-on-surface-variant font-body-md text-sm line-clamp-3 mb-4">Exploring
+                            security in agentic systems and large language models.</p>
+                        <div class="flex items-center justify-between text-xs text-on-surface-variant font-body-md">
+                            <span>Week 1</span>
+                            <span class="flex items-center gap-1 text-secondary">
+                                <span class="ping-dot" style="width:6px;height:6px;margin-right:2px"></span> Active
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Log Card 3 -->
+                <div class="blog-card scroll-reveal" style="transition-delay:0.3s">
+                    <div style="overflow:hidden">
+                        <img class="cover-img" alt="AI Security Research" loading="lazy"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyC8hr6lPuPUFFA2JJQtBiegn0gTISBxBwxRvKwNx5MET-Y_SQ94D9aPbB6Q5fnC1XYUTKhOQxrxjEmxRzmSibItoOwE0WBrnTr4Y2aMGN_2UqdaNV9gByuSI9Fhvq2tc5yGtyZB1EEb3gF-mcFKVzO8WD6V1nhgI2uYOP8FCG1bl_AKGLEOyxjFGxJ7B90EMrXhRhsduBo8R2fw9fF6N8ePd0qLc-IWSZy_B9jP-8qaJ67O7hqoMrPQMhohlapG6WrZeGkZaO9UU" />
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap mb-2">
+                            <span class="blog-tag" style="background:#fef3c7;color:#92400e">#Blogging</span>
+                            <span class="blog-tag">#CyberSecurity</span>
+                            <span class="blog-tag">#AIProtection</span>
+                        </div>
+                        <h3 class="font-h2 text-[18px] font-bold leading-snug text-on-surface mb-2">Drafting Blog on
+                            Prompt
+                            Injection Attacks</h3>
+                        <p class="text-on-surface-variant font-body-md text-sm line-clamp-3 mb-4">Prompt injection is
+                            when someone tricks an AI into breaking its own rules by giving it clever, hidden commands.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-on-surface-variant font-body-md">
+                            <span>Week 1</span>
+                            <span class="flex items-center gap-1 text-secondary">
+                                <span class="ping-dot" style="width:6px;height:6px;margin-right:2px"></span> In
+                                Progress
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════ NEWSLETTER ═══════════════════════ -->
+        <section id="newsletter" class="scroll-reveal">
+            <div class="relative bg-primary-fixed border-4 border-primary rounded-[32px] p-10 md:p-14 overflow-hidden">
+                <div class="absolute inset-0 paper-texture opacity-20"></div>
+                <div class="absolute top-6 right-8 text-primary opacity-20 drift1">
+                    <span class="material-symbols-outlined text-7xl">mail</span>
+                </div>
+                <div class="relative z-10 max-w-xl">
+                    <span class="font-label uppercase tracking-widest text-primary-container text-xs mb-3 block">Monthly
+                        Newsletter</span>
+                    <h2 class="font-h1 text-h2 text-on-surface mb-3">The Monthly Scrap 📬</h2>
+                    <p class="text-on-surface-variant font-body-lg mb-4">
+                        A curated digest of what I'm building, reading, and exploring in AI/ML delivered once a
+                        month.
+                        No spam, just signal.
+                    </p>
+                    <p class="text-on-surface-variant font-body-md mb-8 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-base">alternate_email</span>
+                        <a href="mailto:the.kai.builds@gmail.com"
+                            class="text-primary underline hover:opacity-80 transition-opacity">the.kai.builds@gmail.com</a>
+                    </p>
+
+                    <!-- Newsletter signup form (EmailOctopus) -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input id="newsletter-email" type="email" placeholder="your@email.com"
+                            class="flex-1 px-4 py-3 border-2 border-on-surface rounded-none font-body-md text-on-surface bg-surface-container-lowest focus:outline-none focus:border-primary shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)] placeholder-on-surface-variant/60" />
+                        <button id="newsletter-btn" onclick="subscribeNewsletter()"
+                            class="btn-press bg-primary text-on-primary px-6 py-3 rounded-none font-label uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)] border-2 border-on-surface whitespace-nowrap">
+                            Subscribe →
+                        </button>
+                    </div>
+                    <p id="newsletter-msg" class="mt-3 text-sm font-body-md text-secondary hidden"></p>
+                    <p class="mt-3 text-xs text-on-surface-variant font-body-md">
+                        Join readers building at the edge of AI. Unsubscribe anytime.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════ CONNECT ═══════════════════════ -->
+        <section id="connect"
+            class="flex flex-col items-center justify-center text-center py-16 bg-surface-container-high rounded-[40px] relative overflow-hidden scroll-reveal">
+            <div class="absolute inset-0 paper-texture opacity-10"></div>
+            <h2 class="font-h1 text-h1 mb-8 relative z-10 reveal reveal-0">Connect with me</h2>
+
+            <div class="flex flex-wrap justify-center gap-12 relative z-10">
+                <a class="sticker-link group relative block reveal reveal-1" href="https://dev.to/kaisudo"
+                    target="_blank" rel="noopener">
+                    <div
+                        class="w-24 h-24 rounded-full bg-white border-4 border-primary p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-center relative">
+                        <span class="material-symbols-outlined text-4xl text-primary">article</span>
+                        <div
+                            class="absolute -bottom-2 -right-4 bg-yellow-300 text-stone-900 font-label px-2 py-0.5 rounded-full border border-stone-800 text-[10px] uppercase">
+                            Blog</div>
+                    </div>
+                    <p class="mt-4 font-h3 text-caption">dev.to</p>
+                </a>
+
+                <a class="sticker-link group relative block reveal reveal-2" href="https://x.com/k_nikisha"
+                    target="_blank">
+                    <div
+                        class="w-24 h-24 rounded-full bg-white border-4 border-primary p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-center relative">
+                        <span class="material-symbols-outlined text-4xl text-primary">alternate_email</span>
+                        <div
+                            class="absolute -bottom-2 -right-4 bg-yellow-300 text-stone-900 font-label px-2 py-0.5 rounded-full border border-stone-800 text-[10px] uppercase">
+                            Sticker</div>
+                    </div>
+                    <p class="mt-4 font-h3 text-caption">Twitter / X</p>
+                </a>
+
+                <a class="sticker-link group relative block reveal reveal-3" href="https://www.kaggle.com/kaisudo"
+                    target="_blank">
+                    <div
+                        class="w-24 h-24 rounded-lg bg-blue-500 border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-center rotate-3">
+                        <span class="material-symbols-outlined text-4xl text-white">database</span>
+                    </div>
+                    <p class="mt-4 font-h3 text-caption">Kaggle</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a class="sticker-link group relative block reveal reveal-3"
+                    href="https://www.linkedin.com/in/nikisha-k/" target="_blank" rel="noopener">
+                    <div
+                        class="w-24 h-24 rounded-xl bg-[#0077b5] border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-center -rotate-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-10 h-10">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </div>
+                    <p class="mt-4 font-h3 text-caption">LinkedIn</p>
+                </a>
+
+                <!-- GitHub -->
+                <a class="sticker-link group relative block reveal reveal-3" href="https://github.com/Kai-sudo-78"
+                    target="_blank" rel="noopener">
+                    <div
+                        class="w-24 h-24 rounded-full bg-stone-900 border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-center rotate-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-10 h-10">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg>
+                    </div>
+                    <p class="mt-4 font-h3 text-caption">GitHub</p>
+                </a>
+
+            </div>
+
+            <div class="absolute top-10 left-10 text-primary opacity-20 drift1">
+                <span class="material-symbols-outlined text-6xl">draw</span>
+            </div>
+            <div class="absolute bottom-10 right-20 text-tertiary opacity-20 drift2">
+                <span class="material-symbols-outlined text-6xl">ink_pen</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full mt-12 pb-12 bg-transparent">
+        <div class="flex justify-center items-center px-12 gap-4 max-w-screen-2xl mx-auto">
+            <p class="font-h3 text-caption text-sm text-stone-700">© Hand-crafted with ink &amp; pixels · Nikisha</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════ BLOG MODAL ═══════════════════════ -->
+    <div id="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div id="blog-modal-inner">
+            <button id="modal-close" aria-label="Close modal">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+            <img id="modal-cover" class="modal-cover" src="" alt="" loading="lazy" />
+            <div class="p-8">
+                <div id="modal-tags" class="flex flex-wrap gap-1 mb-4"></div>
+                <h2 id="modal-title" class="font-h2 text-h2 text-on-surface mb-2"></h2>
+                <p id="modal-meta" class="text-on-surface-variant font-body-md text-sm mb-4"></p>
+                <p id="modal-desc" class="text-on-surface-variant font-body-lg leading-relaxed mb-6"></p>
+                <div class="flex items-center gap-6">
+                    <a id="modal-link" href="#" target="_blank" rel="noopener"
+                        class="btn-press bg-primary text-on-primary px-6 py-3 rounded-none font-label uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)] border-2 border-on-surface">
+                        Read on dev.to →
+                    </a>
+                    <div id="modal-stats" class="flex items-center gap-4 text-on-surface-variant text-sm font-body-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+    <script>
+        /* ── Hamburger menu ── */
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) { closeMobileMenu(); }
+            else { mobileMenu.classList.remove('hidden'); hamburgerBtn.setAttribute('aria-expanded', 'true'); }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
+        });
+
+        /* ── Newsletter subscription (EmailOctopus) ── */
+        /*
+         * HOW TO SET UP YOUR NEWSLETTER WITH EMAILOCTOPUS:
+         * 1. Go to https://emailoctopus.com and create a free account
+         * 2. Create a new mailing list for your digest
+         * 3. Go to Grow → Forms → Create a form (Inline type)
+         * 4. In the form settings, find your List ID and form action URL
+         * 5. Replace the values below:
+         *    - EMAILOCTOPUS_LIST_ID: Your list's UUID (found in list Settings)
+         *    - EMAILOCTOPUS_FORM_URL: The form submission URL from the embed code
+         * 6. Free plan supports up to 2,500 subscribers!
+         */
+        const EMAILOCTOPUS_LIST_ID = 'YOUR_LIST_ID';       // ← Replace with your List ID
+        const EMAILOCTOPUS_FORM_URL = 'https://eocampaign1.com/form/YOUR_FORM_ID/subscribe'; // ← Replace with your form URL
+
+        async function subscribeNewsletter() {
+            const emailInput = document.getElementById('newsletter-email');
+            const msg = document.getElementById('newsletter-msg');
+            const btn = document.getElementById('newsletter-btn');
+            const email = emailInput.value.trim();
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                msg.textContent = '⚠️ Please enter a valid email address.';
+                msg.className = 'mt-3 text-sm font-body-md text-red-500';
+                msg.classList.remove('hidden');
+                return;
+            }
+
+            // Show loading state
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+
+            try {
+                const formData = new FormData();
+                formData.append('field_0', email); // EmailOctopus uses field_0 for email
+
+                const res = await fetch(EMAILOCTOPUS_FORM_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // EmailOctopus form endpoint doesn't support CORS
+                });
+
+                // With no-cors mode, we can't read the response status,
+                // but the request will still go through if the URL is correct
+                msg.textContent = '🎉 You\'re on the list! First issue lands next month.';
+                msg.className = 'mt-3 text-sm font-body-md text-secondary';
+                emailInput.value = '';
+
+            } catch (err) {
+                // Fallback: open EmailOctopus landing page
+                window.open(EMAILOCTOPUS_FORM_URL.replace('/subscribe', ''), '_blank');
+                msg.textContent = '📬 Redirecting to subscribe page...';
+                msg.className = 'mt-3 text-sm font-body-md text-primary';
+                emailInput.value = '';
+            }
+
+            msg.classList.remove('hidden');
+            btn.disabled = false;
+            btn.textContent = 'Subscribe →';
+        }
+
+        document.getElementById('newsletter-email').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') subscribeNewsletter();
+        });
+
+        /* ── Dark mode ── */
+        const html = document.documentElement;
+        const btn = document.getElementById('theme-btn');
+        const icon = document.getElementById('theme-icon');
+
+        function applyTheme(dark) {
+            html.classList.toggle('dark', dark);
+            icon.textContent = dark ? 'dark_mode' : 'light_mode';
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
+        applyTheme(localStorage.getItem('theme') === 'dark');
+        btn.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+
+        /* ── Scroll-reveal ── */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    entry.target.querySelectorAll('.scroll-reveal').forEach((child, i) => {
+                        setTimeout(() => child.classList.add('in-view'), i * 120);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        /* ── Header shadow ── */
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        /* ── Polaroid click ── */
+        document.querySelector('.polaroid').addEventListener('click', function () {
+            this.querySelector('img').classList.toggle('grayscale');
+        });
+
+        /* ── Active nav link on scroll ── */
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        }, { passive: true });
+
+        /* ═══════════════════════════════════════════════════
+           BLOG — fetch from dev.to API (kaisudo)
+        ═══════════════════════════════════════════════════ */
+        const DEV_TO_API = 'https://dev.to/api/articles?username=kaisudo&per_page=9';
+
+        function formatDate(dateStr) {
+            return new Date(dateStr).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        function buildBlogCard(article) {
+            const cover = article.cover_image || article.social_image || 'https://dev.to/assets/devlogo-pwa-512.png';
+            const tags = (article.tag_list || []).slice(0, 3);
+
+            const card = document.createElement('div');
+            card.className = 'blog-card';
+            card.innerHTML = `
+        <div style="overflow:hidden">
+          <img class="cover-img" src="${cover}" alt="${article.title}" loading="lazy" onerror="this.src='https://dev.to/assets/devlogo-pwa-512.png'"/>
+        </div>
+        <div class="p-5">
+          <div class="flex flex-wrap mb-2">
+            ${tags.map(t => `<span class="blog-tag">#${t}</span>`).join('')}
+          </div>
+          <h3 class="font-h2 text-[18px] font-bold leading-snug text-on-surface mb-2 line-clamp-2">${article.title}</h3>
+          <p class="text-on-surface-variant font-body-md text-sm line-clamp-3 mb-4">${article.description || ''}</p>
+          <div class="flex items-center justify-between text-xs text-on-surface-variant font-body-md">
+            <span>${formatDate(article.published_at)}</span>
+            <span class="flex items-center gap-3">
+              <span title="Reactions">❤️ ${article.public_reactions_count}</span>
+              <span title="Comments">💬 ${article.comments_count}</span>
+            </span>
+          </div>
+        </div>
+      `;
+            card.addEventListener('click', () => openModal(article));
+            return card;
+        }
+
+        function openModal(article) {
+            const cover = article.cover_image || article.social_image || 'https://dev.to/assets/devlogo-pwa-512.png';
+            const tags = (article.tag_list || []);
+
+            document.getElementById('modal-cover').src = cover;
+            document.getElementById('modal-cover').alt = article.title;
+            document.getElementById('modal-title').textContent = article.title;
+            document.getElementById('modal-meta').textContent =
+                `By ${article.user?.name || 'Nikisha'} · ${formatDate(article.published_at)} · ${article.reading_time_minutes} min read`;
+            document.getElementById('modal-desc').textContent = article.description || 'Click below to read the full article on dev.to.';
+            document.getElementById('modal-link').href = article.url;
+            document.getElementById('modal-tags').innerHTML = tags.map(t => `<span class="blog-tag">#${t}</span>`).join('');
+            document.getElementById('modal-stats').innerHTML = `
+        <span>❤️ ${article.public_reactions_count} reactions</span>
+        <span>💬 ${article.comments_count} comments</span>
+      `;
+
+            const modal = document.getElementById('blog-modal');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('blog-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        document.getElementById('blog-modal').addEventListener('click', e => {
+            if (e.target === document.getElementById('blog-modal')) closeModal();
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        async function loadBlogPosts() {
+            try {
+                const res = await fetch(DEV_TO_API);
+                if (!res.ok) throw new Error('API error');
+                const articles = await res.json();
+
+                document.getElementById('blog-skeleton').classList.add('hidden');
+
+                if (!articles || articles.length === 0) {
+                    document.getElementById('blog-error').classList.remove('hidden');
+                    return;
+                }
+
+                const grid = document.getElementById('blog-grid');
+                grid.classList.remove('hidden');
+                articles.forEach(article => grid.appendChild(buildBlogCard(article)));
+
+            } catch (err) {
+                document.getElementById('blog-skeleton').classList.add('hidden');
+                document.getElementById('blog-error').classList.remove('hidden');
+                console.warn('dev.to API error:', err);
+            }
+        }
+
+        loadBlogPosts();
+
+        /* ── Download Resume ── */
+        function downloadResume(e) {
+            e.preventDefault();
+            // Replace this URL with your actual resume PDF path or URL
+            const resumeUrl = 'Nikisha_Resume.pdf';
+            // Open in new tab for preview
+            window.open(resumeUrl, '_blank');
+            // Also trigger download
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'Nikisha_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+
+</html>
