@@ -1317,7 +1317,7 @@
             if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
         });
 
-        /* ── Newsletter subscription (EmailOctopus) ── */
+        /* ── Newsletter subscription (Email) ── */
         /*
          * HOW TO SET UP YOUR NEWSLETTER WITH EMAILOCTOPUS:
          * 1. Go to https://emailoctopus.com and create a free account
@@ -1330,7 +1330,7 @@
          * 6. Free plan supports up to 2,500 subscribers!
          */
         const EMAILOCTOPUS_LIST_ID = 'YOUR_LIST_ID';       // ← Replace with your List ID
-        const EMAILOCTOPUS_FORM_URL = 'https://eocampaign1.com/form/YOUR_FORM_ID/subscribe'; // ← Replace with your form URL
+        const EMAILOCTOPUS_FORM_URL = 'https://eocampaign1.com/form/f349cb2c-46e1-11f1-ba64-675567d59efb'; // ← Replace with your form URL
 
         async function subscribeNewsletter() {
             const emailInput = document.getElementById('newsletter-email');
